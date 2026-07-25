@@ -28,14 +28,6 @@ const add_registrant_detail = async (post:any,oldExtantion:any,ipaddress:any,por
         )`;
         const [rows_user, fields_user] = await connection.execute(sql_user,[insert_obj.endpointNumber,insert_obj.sipDomain,insert_obj.password,insert_obj.md5_string,insert_obj.endpointNumber,insert_obj.sipDomain]);
 
-
-        // var sql_user_secondary = `INSERT INTO subscriber_secondary (username, domain, password, ha1)
-        // SELECT ?, ?, ?, ?
-        // WHERE NOT EXISTS (
-        //     SELECT 1 FROM subscriber_secondary WHERE username = ? AND domain = ?
-        // )`;
-        // const [rows_user_secondary, fields_user_secondary] = await connection.execute(sql_user_secondary,[insert_obj.endpointNumber,insert_obj.sipDomain,insert_obj.password,insert_obj.md5_string,insert_obj.endpointNumber,insert_obj.sipDomain]);
-        
         let add_registart_Obj:any = {
           aor:`sip:${post.endpointNumber}@${ipaddress}`,
           username:post.endpointNumber,
@@ -59,19 +51,13 @@ const add_registrant_detail = async (post:any,oldExtantion:any,ipaddress:any,por
             registrar:`sip:${secondary_ip}:${secondary_port}`,
             binding_URI:`sip:${post.endpointNumber}@${config.MYSQL_CONSTANT.registrant_binding_uri_secondary}`
           }
-
-          // var sql_secondary = `INSERT INTO registrant_secondary (registrar,aor,username,password,binding_URI)
-          // SELECT ?, ?, ?, ?, ?
-          // WHERE NOT EXISTS (
-          //     SELECT 1 FROM registrant_secondary WHERE aor = ?
-          // )`;
-          // const [rows_secondary, fields_secondary] = await connection.execute(sql_secondary,[add_registart_Obj_secondary.registrar,add_registart_Obj_secondary.aor,add_registart_Obj_secondary.username,add_registart_Obj_secondary.password,add_registart_Obj_secondary.binding_URI,add_registart_Obj_secondary.aor]);
         }
 
         await connection.end(); 
         return;
-      } catch (error:any) {
-      }
+      } catch (error: any) {
+      console.error("[sql_registrant.ts] error:", error);
+    }
 }  
 
 export default add_registrant_detail;

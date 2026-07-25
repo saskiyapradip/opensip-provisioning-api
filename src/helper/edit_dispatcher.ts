@@ -31,7 +31,8 @@ console.log("oldDestination",oldDestination)
 
     return rows;
   } catch (error: any) {
-  }
+      console.error("[edit_dispatcher.ts] error:", error);
+    }
 };
 
 export default edit_dispatcher;

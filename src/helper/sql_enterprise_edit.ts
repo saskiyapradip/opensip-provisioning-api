@@ -47,7 +47,8 @@ const edit_enterprise_detail = async (post: any,oldDetail:any) => {
     await connection.end();
     return;
   } catch (error: any) {
-  }
+      console.error("[sql_enterprise_edit.ts] error:", error);
+    }
 }
 
 export default edit_enterprise_detail;
