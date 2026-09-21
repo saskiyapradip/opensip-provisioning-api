@@ -22,7 +22,6 @@ const delete_enterprise_detail = async (post: any) => {
         await connection.end();
         return;
     } catch (error: any) {
-      console.error("[sql_enterprise_delete.ts] error:", error);
     }
 }
 

@@ -42,9 +42,8 @@ const sendPushNotificationios = async (title: any, body: any, myTokens: any, myd
 	});
 	return apiresponse;
 	}
-} catch (error: any) {
-      console.error("[sendPushNotificationios.ts] error:", error);
-    }
+} catch (error:any) {
+}
 }
 
 export default sendPushNotificationios;

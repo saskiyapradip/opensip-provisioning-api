@@ -27,8 +27,7 @@ console.log("destination",destination)
 
     return rows;
   } catch (error: any) {
-      console.error("[delete_dispatcher.ts] error:", error);
-    }
+  }
 };
 
 export default delete_dispatcher;

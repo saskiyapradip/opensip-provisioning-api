@@ -35,9 +35,8 @@ const remove_register_user_detail = async (post:any)=>{
 
         await connection.end(); 
         return;
-      } catch (error: any) {
-      console.error("[sql_registrant_remove.ts] error:", error);
-    }
+      } catch (error:any) {
+      }
 }  
 
 export default remove_register_user_detail;

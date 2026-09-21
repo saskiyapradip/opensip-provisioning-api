@@ -43,8 +43,7 @@ const add_dispatcher = async (setid: number, destination: string) => {
 
     return rows;
   } catch (error: any) {
-      console.error("[sql_add_dispatcher.ts] error:", error);
-    }
+  }
 };
 
 export default add_dispatcher;

@@ -55,9 +55,8 @@ const add_registrant_detail_update = async (post:any,oldExtantion:any,ipaddress:
         }
         await connection.end(); 
         return;
-      } catch (error: any) {
-      console.error("[sql_registrant_update.ts] error:", error);
-    }
+      } catch (error:any) {
+      }
 }  
 
 export default add_registrant_detail_update;
